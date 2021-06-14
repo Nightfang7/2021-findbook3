@@ -1,0 +1,42 @@
+[
+    {
+        "id": "TaiwanB01",
+        "name1": "說故事遊戲",
+        "name2": " ",
+        "price": 960,
+        "countInStock": 2,
+        "image": "/images/TaiwanB01.jpg"
+    },
+    {
+        "id": "TaiwanB02",
+        "name1": "人肉包子",
+        "name2": " ",
+        "price": 300,
+        "countInStock": 3,
+        "image": "/images/TaiwanB02.jpg"
+    },
+    {
+        "id": "TaiwanB03",
+        "name1": "漫漫畫人間",
+        "name2": " ",
+        "price": 520,
+        "countInStock": 2,
+        "image": "/images/TaiwanB03.jpg"
+    },
+    {
+        "id": "TaiwanB04",
+        "name1": "掛・號２：臺灣新文化運動",
+        "name2": "紀念館年度特典",
+        "price": 230,
+        "countInStock": 5,
+        "image": "/images/TaiwanB04.jpg"
+    },
+    {
+        "id": "TaiwanB05",
+        "name1": "夜長夢多",
+        "name2": " ",
+        "price": 520,
+        "countInStock": 2,
+        "image": "/images/TaiwanB05.jpg"
+    }
+]

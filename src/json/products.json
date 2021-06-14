@@ -1,0 +1,138 @@
+[
+    {
+        "category": "最新上架",
+        "id": "NewB01",
+        "name1": "OTHER SIDE 好想睡",
+        "name2": "短篇漫畫集",
+        "price": 270,
+        "countInStock": 3,
+        "image": "/images/NewB01.jpg"
+    },
+    {
+        "category": "最新上架",
+        "id": "NewB02",
+        "name1": "流星雨",
+        "name2": " ",
+        "price": 200,
+        "countInStock": 3,
+        "image": "/images/NewB02.jpg"
+    },
+    {
+        "category": "最新上架",
+        "id": "NewB03",
+        "name1": "親近大自然",
+        "name2": " ",
+        "price": 200,
+        "countInStock": 5,
+        "image": "/images/NewB03.jpg"
+    },
+    {
+        
+        "category": "最新上架",
+        "id": "NewB04",
+        "name1": "塑料人形安妮",
+        "name2": " ",
+        "price": 250,
+        "countInStock": 5,
+        "image": "/images/NewB04.jpg"
+    },
+    {
+        "category": "最新上架",
+        "id": "NewB05",
+        "name1": "不慌不忙",
+        "name2": "電影宅通訊 vol.3",
+        "price": 260,
+        "countInStock": 5,
+        "image": "/images/NewB05.jpg"
+    },
+    {
+        "category": "台灣漫畫",
+        "id": "TaiwanB01",
+        "name1": "說故事遊戲",
+        "name2": " ",
+        "price": 960,
+        "countInStock": 2,
+        "image": "/images/TaiwanB01.jpg"
+    },
+    {
+        "category": "台灣漫畫",
+        "id": "TaiwanB02",
+        "name1": "人肉包子",
+        "name2": " ",
+        "price": 300,
+        "countInStock": 3,
+        "image": "/images/TaiwanB02.jpg"
+    },
+    {
+        "category": "台灣漫畫",
+        "id": "TaiwanB03",
+        "name1": "漫漫畫人間",
+        "name2": " ",
+        "price": 520,
+        "countInStock": 2,
+        "image": "/images/TaiwanB03.jpg"
+    },
+    {
+        "category": "台灣漫畫",
+        "id": "TaiwanB04",
+        "name1": "掛・號２：臺灣新文化運動",
+        "name2": "紀念館年度特典",
+        "price": 230,
+        "countInStock": 5,
+        "image": "/images/TaiwanB04.jpg"
+    },
+    {
+        "category": "台灣漫畫",
+        "id": "TaiwanB05",
+        "name1": "夜長夢多",
+        "name2": " ",
+        "price": 520,
+        "countInStock": 2,
+        "image": "/images/TaiwanB05.jpg"
+    },
+    {
+        "category": "TOP熱銷",
+        "id": "TopB01",
+        "name1": "雞蛋籃",
+        "name2": " ",
+        "price": 200,
+        "countInStock": 2,
+        "image": "/images/TopB01.jpg"
+    },
+    {
+        "category": "TOP熱銷",
+        "id": "TopB02",
+        "name1": "Sweet Dream 美夢",
+        "name2": " ",
+        "price": 350,
+        "countInStock": 3,
+        "image": "/images/TopB02.jpg"
+    },
+    {
+        "category": "TOP熱銷",
+        "id": "TopB03",
+        "name1": "夢魔",
+        "name2": " ",
+        "price": 400,
+        "countInStock": 2,
+        "image": "/images/TopB03.jpg"
+    },
+    {
+        "category": "TOP熱銷",
+        "id": "TopB04",
+        "name1": "原來不是我",
+        "name2": " ",
+        "price": 250,
+        "countInStock": 3,
+        "image": "/images/TopB04.jpg"
+    },
+    {
+        "category": "TOP熱銷",
+        "id": "TopB05",
+        "name1": "USCA TAIWAN",
+        "name2": " ",
+        "price": 350,
+        "countInStock": 2,
+        "image": "/images/TopB05.jpg"
+    }
+]
