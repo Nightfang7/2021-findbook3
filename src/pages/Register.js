@@ -15,7 +15,7 @@ function Register(props) {
             <Header className="layout-header">
              <AppHeader />
             </Header>
-            <Content className="layout-content">
+            <Content className="bg-login">
              <RegisterCard redirect={redirect}/>
             </Content>
             <Footer className="layout-footer">

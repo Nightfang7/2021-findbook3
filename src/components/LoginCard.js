@@ -33,6 +33,11 @@ const LoginCard = ({ redirect }) => {
       }}
       onFinish={onFinish}
     >
+      <div className="title-login">
+        <h1>登入帳密</h1>
+        
+      </div>
+
       <Form.Item
         name="email"
         rules={[
@@ -70,7 +75,7 @@ const LoginCard = ({ redirect }) => {
       </Form.Item>
       <Form.Item>
         <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox onChange={onChange} checked={remember}>記住我</Checkbox>
+          <Checkbox onChange={onChange} checked={remember}>記住me!</Checkbox>
         </Form.Item>
 
         <Link className="login-form__forgot" to={"/"}>
@@ -84,18 +89,23 @@ const LoginCard = ({ redirect }) => {
           <Button
             type="primary"
             htmlType="submit"
-            className="login-form__button"
+            className="login-form__button_red"
             loading
           >
             登入
           </Button>
         ):(
-          <Button type="primary" htmlType="submit" className="login-form__button">
+          <Button type="primary" htmlType="submit" className="login-form__button_red">
             登入
           </Button>
         )}
         
-        或 <Link to={"/register?redirect=shipping"}>創建會員!</Link>
+        <div className="login-form_p">
+          <p>或</p>
+        </div>
+        <Button type="primary" htmlType="submit" className="login-form__button_black">
+          <Link to={"/register?redirect=shipping"}>註冊帳號</Link>
+        </Button>
         {error === "" ? (
           <></>
         ) : (

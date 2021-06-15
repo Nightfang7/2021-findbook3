@@ -54,12 +54,15 @@ function RegisterCard({ redirect }) {
     return (
         <Form
             {...formItemLayout}
-            form={form}
-            name="register"
-            onFinish={onFinish}
-            className="register-form"
+            form = {form}
+            name = "register"
+            onFinish = {onFinish}
+            className = "register-form"
             scrollToFirstError
             >
+            <div className="title-login">
+                <h1>註冊帳號</h1>
+            </div>
             <Form.Item
                 name="name"
                 label="姓名"
@@ -152,19 +155,19 @@ function RegisterCard({ redirect }) {
                 {loading?(
                     <Button
                     type="primary"
-                    className="login-form__button"
+                    className="login-form__button_red"
                     htmlType="submit"
                     loading
                   >
-                    創建會員
+                    註冊帳號
                   </Button>
                 ):(
                     <Button
                     type="primary"
-                    className="login-form__button"
+                    className="login-form__button_black"
                     htmlType="submit"
                     >
-                        創建會員
+                        註冊帳號
                     </Button>
                 )}
                 

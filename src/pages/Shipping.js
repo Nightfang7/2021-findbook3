@@ -13,7 +13,7 @@ function Shipping() {
         <Header className="layout-header">
             <AppHeader />
         </Header>
-        <Content className="layout-content">
+        <Content className="bg-login">
             <CheckoutSteps step1 step2></CheckoutSteps>
             <ShippingAddressCard />
         </Content>
