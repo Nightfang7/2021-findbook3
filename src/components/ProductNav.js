@@ -34,7 +34,11 @@ export default function ProductNav() {
                 熱銷TOP
               </ProductNavItems>
             </Menu.Item>
-            <Menu.Item key="4">店長推薦</Menu.Item>
+            <Menu.Item key="4">
+              <ProductNavItems to="/store/shopmanager" className="nav-item" activeClassName="nav-item--active">
+                店長推薦
+              </ProductNavItems>
+            </Menu.Item>
           </SubMenu>
         
           <Menu.Item key="5" icon={<BookOutlined />}> 
@@ -45,7 +49,9 @@ export default function ProductNav() {
         
           
           <Menu.Item key="6" icon={<BookOutlined />}>
-            日本漫畫
+            <ProductNavItems to="/store/japan" className="nav-item" activeClassName="nav-item--active">
+              日本漫畫
+            </ProductNavItems>
           </Menu.Item>
             
         </Menu>

@@ -9,9 +9,13 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Shipping from './pages/Shipping'
 import Profile from './pages/Profile'
-
+import Payment from './pages/Payment';
+import PlaceOrder from './pages/PlaceOrder';
+import Order from './pages/Order'
 
 import { StoreProvider } from "./store"
+
+
 
 
 function App() {
@@ -27,6 +31,9 @@ function App() {
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
                     <Route path="/shipping" component={Shipping} />
+                    <Route path="/payment" component={Payment} />
+                    <Route path="/placeorder" component={PlaceOrder} />
+                    <Route path="/order/:orderId" component={Order} />
                     <Route path="/profile" component={Profile} />
                 </Switch>
             </BrowserRouter>

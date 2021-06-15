@@ -3,6 +3,9 @@ import "firebase/firestore";
 import "firebase/auth";
 import jsonInfo from "../json/jsonInfo.json";
 import products from "../json/products.json"
+import newest from "../json/Newest.json"
+import taiwan from "../json/Taiwanproduct.json"
+import topproduct from "../json/Topproduct.json"
 
 
 // INITIALIZE FIREBASE

@@ -61,7 +61,7 @@ const initialState = {
         loading: false,
         order: localStorage.getItem('orderInfo')
         ? JSON.parse(localStorage.getItem('orderInfo'))
-        : { id: ""},
+        : { id: "" },
         success: false,
         error: null,
       },
@@ -231,6 +231,30 @@ const initialState = {
                 ...state.userRegister,
                 loading: false,
                 userInfo: null,
+                error: action.payload,
+              },
+            };
+        case BEGIN_ORDER_CREATE:
+            return { ...state, orderInfo: { ...state.orderInfo, loading: true } };
+        case SUCCESS_ORDER_CREATE:
+            return {
+              ...state,
+              orderInfo: {
+                ...state.orderInfo,
+                loading: false,
+                order: action.payload,
+                success: true,
+                error: null,
+              },
+            };
+        case FAIL_ORDER_CREATE:
+            return {
+              ...state,
+              orderInfo: {
+                ...state.orderInfo,
+                loading: false,
+                order: {id:""},
+                success: false,
                 error: action.payload,
               },
             };

@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react'
 import { Carousel } from "antd";
 import { Link } from "react-router-dom"
 import CarouselList from './CarouselList';
-import CarouselProducts from "../json/CarousalProduct.json"
 import { StoreContext } from "../store"
 import { getTitle } from "../util"
 import { setPage } from "../action";

@@ -14,11 +14,21 @@
         "name": "TOP熱銷",
         "url": "/store/topproduct"
      },
+     {
+      "title": "店長推薦",
+      "name": "店長推薦",
+      "url": "/store/shopmanager"
+   },
     {
        "title": "台灣漫畫",
        "name": "台灣漫畫",
        "url": "/store/taiwan"
     },
+    {
+      "title": "日本漫畫",
+      "name": "日本漫畫",
+      "url": "/store/japan"
+   },
     {
        "title": "Feed JSON Page",
        "name": "FeedJSONPage",
