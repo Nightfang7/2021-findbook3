@@ -33,7 +33,7 @@ function Store() {
                     <Sider
                         collapsible collapsed={collapsed} onCollapse={onCollapse}
                     >
-                        <ProductNav />
+                        <ProductNav key={products.category} />
                     </Sider>
                     <Content className="layout-content">
                         <ProductList products={products} title={title} />

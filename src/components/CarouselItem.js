@@ -22,7 +22,7 @@ function CarouselItem( { product } ) {
                     </div>
                 </Link>
                 <div className="product-info">          
-                    <h3 className="product-name">{product.name1}<br/>{product.name2}</h3>
+                    <h3 className="product-name">{product.name1}</h3>
                 </div>      
             </Card>
         </div>

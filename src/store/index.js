@@ -43,6 +43,12 @@ const initialState = {
        title: "全部商品",
        products,
     },
+    producttype1:{
+      products
+    },
+    producttype2:{
+      products
+    },
     productDetail: {
         product: {},
         qty: 1,
@@ -51,7 +57,7 @@ const initialState = {
        activeItem: "/store",
     },
     cart: {
-        cartItems,
+        cartItems:[],
         shippingAddress: localStorage.getItem('shippingAddress')
           ? JSON.parse(localStorage.getItem('shippingAddress'))
           : {},
@@ -89,6 +95,7 @@ const initialState = {
 
  function reducer(state, action){
      console.log(action)
+     console.log(state)
      switch (action.type) {
         case SET_STOREPAGE_TITLE:
             return {
@@ -99,9 +106,21 @@ const initialState = {
                 },
             };
         case SET_STOREPAGE_CONTENT:
+          const allproducts = state.page.products;
+          console.log( state.page.products)
+          const producttype1 = allproducts.filter(product => product.category == "最新上架" )
+          console.log( producttype1 )
+          const producttype2 = allproducts.filter(product => product.category == "TOP熱銷" )
+          console.log( producttype2 )
             return {
                 ...state,
                 page: action.payload,
+                producttype1:{
+                  products : producttype1
+                },
+                producttype2:{
+                  products : producttype2
+                }
             };
         case SET_PRODUCTNAVBAR_ACTIVEITEM:
             return {

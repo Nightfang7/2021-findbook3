@@ -7,9 +7,11 @@ import { getTitle } from "../util"
 import { setPage } from "../action";
 
 function Mycarousel() {
-    const { state: { page: {title, products} }, dispatch } = useContext(StoreContext);
+    const { state: { page: {title, products}, producttype1, producttype2  }, dispatch } = useContext(StoreContext);
+    console.log(producttype1.products)
+    console.log(products)
     useEffect(() => {
-        const url = "/store/newest";
+        const url = "/store";
         setPage(dispatch, url, getTitle(url))
     }, []);
     const contentStyle = {
@@ -30,7 +32,7 @@ function Mycarousel() {
                         </Link>
                     
                         <div className="slider">
-                            <CarouselList CarouselProducts={products} />
+                            <CarouselList CarouselProducts={producttype1.products} />
                         </div>
                     </div>
                     <div className="slider-container" style={contentStyle}>
@@ -39,7 +41,7 @@ function Mycarousel() {
                         </Link>
                         
                         <div className="slider">
-                            <CarouselList CarouselProducts={products} />
+                            <CarouselList CarouselProducts={producttype2.products} />
                         </div>
                     </div>
                     <div className="slider-container" style={contentStyle}>
@@ -48,7 +50,7 @@ function Mycarousel() {
                         </Link>
                     
                         <div className="slider">
-                            <CarouselList CarouselProducts={products} />
+                            <CarouselList CarouselProducts={producttype1.products} />
                         </div>
                     </div>
                     <div className="slider-container" style={contentStyle}>
@@ -57,7 +59,7 @@ function Mycarousel() {
                         </Link>
                         
                         <div className="slider">
-                            <CarouselList CarouselProducts={products} />
+                            <CarouselList CarouselProducts={producttype2.products} />
                         </div>
                     </div>
                 </Carousel>

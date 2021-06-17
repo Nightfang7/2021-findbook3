@@ -5,6 +5,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { StoreContext } from "../store";
 
 function CarouselList({CarouselProducts}) {
+    console.log(CarouselProducts)
     const { state: { requestProducts: { loading } } } = useContext(StoreContext);
     const antIcon = <LoadingOutlined style={{ fontSize: 80, color: "#E26D5C" }} spin />;
     return (

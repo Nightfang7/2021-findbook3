@@ -9,15 +9,15 @@ import ComicBotton from './ComicBotton';
 
 
 function Homecontent() {
-    const { state: { page: {title, products} }, dispatch } = useContext(StoreContext);
+    const { state: { page: { products }, producttype2 }, dispatch } = useContext(StoreContext);
     useEffect(() => {
-        const url = "/store/topproduct";
+        const url = "/store";
         setPage(dispatch, url, getTitle(url))
     }, []);
     return (
         <div className="container content-container">
             <Carousel />
-            <TopproductList TopProduct={products} />
+            <TopproductList TopProduct={producttype2.products} />
             {/* <Ad /> */}
             <ComicBotton />
         </div>

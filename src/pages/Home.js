@@ -3,12 +3,13 @@ import { Layout } from 'antd';
 import AppHeader from "../components/Header"
 import AppFooter from "../components/Footer"
 import Homecontent from "../components/Homecontent";
+import { StoreContext } from '../store';
 
 
 const { Header, Content, Footer } = Layout;
 
 function Home() {
-    //const { state: { page: { products} } } = useContext(StoreContext);
+  const { state: { page: { title, products },   producttype1,  producttype2}, dispatch } = useContext(StoreContext);
     return (
       <Layout>
         <Header className="layout-header">

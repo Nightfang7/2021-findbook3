@@ -5,6 +5,7 @@ import AddToCart from './AddToCart';
 import { LoadingOutlined } from '@ant-design/icons';
 import { StoreContext } from "../store"
 import { setProductDetail } from "../action";
+import { Image } from 'antd';
 
 const { Option } = Select;
 const desc = [ '1', '2', '3', '4', '5'];
@@ -14,7 +15,7 @@ function ProductDetail() {
     const antIcon = <LoadingOutlined style={{ fontSize: 80, color: "#E26D5C" }} spin />;
     //const [qty, setQty] = useState(product.countInStock > 0 ? 1 : 0);
     const [value, setValue] = useState(3);
-    const handlechangeStar = value => setValue(value);
+    //const handlechangeStar = value => setValue(value);
     
     return (
         <div className="detail-container">
@@ -32,29 +33,53 @@ function ProductDetail() {
                 </div>
             ):(
                 <Row className="productdetail" >
-                    <Col
-                        lg={{ span: 8, offset: 2 }}
+                    <Col className="product-image-info"
+                        lg={{ span: 8, offset: 4}}
                     >
-                        <img
-                            className="product-image"
-                            src={product.image}
-                            alt={product.name1}
-                        />    
+                        <div className="product-image">
+                            <img
+                                className="product-image-big"
+                                src={product.image}
+                                alt={product.name1}
+                            />
+                        </div>
+                        <div >
+                            <Row gutter={[6,6]}>
+                                <Col className="gutter-row" lg={{span:6}} sm={{ span: 12}}>
+                                    <Image className="product-image-reading"
+                                            width={80}
+                                            src={product.image1}
+                                        />
+                                </Col>
+                                <Col className="gutter-row" lg={{span:6}} sm={{ span: 12}}>
+                                    <Image className="product-image-reading"
+                                            width={80}
+                                            src={product.image1}
+                                        />
+                                </Col>
+                                <Col className="gutter-row" lg={{span:6}} sm={{ span: 12}}>
+                                    <Image className="product-image-reading"
+                                            width={80}
+                                            src={product.image1}
+                                        />
+                                </Col>
+            
+                            </Row>
+                            
+                            
+
+                        </div>
+                            
                     </Col>
                     <Col
-                        lg={{ span: 12 }}
+                        lg={{ span: 8 , offset: 1}}
                     >
                         <div className="product-info--detail">
-                            <h1>
+                            <h2>
                                 {product.name1}{product.name2}
-                            </h1>
+                            </h2>
                             <div className="product-info--wrap">
-                                <h2>作者 {}</h2>
-                                <h2>收藏量 </h2>
-                                <span>
-                                    <Rate tooltips={desc} onChange={handlechangeStar} value={value} />
-                                    {value ? <span className="ant-rate-text">{desc[value - 1]}</span> : ''}
-                                </span>
+                                <h3>作者: {product.author}</h3>
                             </div>
                             <div className="product-price-wrap">
                                 <p className="product-price product-price--large">
@@ -63,23 +88,28 @@ function ProductDetail() {
                                 <p className="product-status">
                                     狀態: {product.countInStock > 0 ? "有庫存" : "暫時缺貨"}
                                 </p>
-                                <p className="product-qty">
-                                    數量: {"   "}
-                                    <Select 
-                                        defaultValue={qty} 
-                                        className="select-style"
-                                        onChange={val => setProductDetail(dispatch, product.id, val)}
-                                    >
-                                        {[...Array(product.countInStock).keys()].map((x) => (
-                                            <Option key={x + 1} value={x + 1}>
-                                            {x + 1}
-                                            </Option>
-                                        ))}
-                                    </Select>
-                                </p>
-                                <p className="product-qty">
-                                    總金額: {product.price * qty}
-                                </p>      
+                                
+                                <div className="product-shop">
+                                    <p className="product-qty">
+                                        數量: {"   "}
+                                        <Select 
+                                            defaultValue={qty} 
+                                            className="select-style"
+                                            onChange={val => setProductDetail(dispatch, product.id, val)}
+                                        >
+                                            {[...Array(product.countInStock).keys()].map((x) => (
+                                                <Option key={x + 1} value={x + 1}>
+                                                {x + 1}
+                                                </Option>
+                                            ))}
+                                        </Select>
+                                    </p>
+                                    <p className="product-money">
+                                        總金額: {product.price * qty}
+                                    </p>
+                                    
+
+                                </div>                                      
                                 <AddToCart />         
                             </div>
                         </div>

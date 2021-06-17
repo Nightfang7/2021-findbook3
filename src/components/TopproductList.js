@@ -5,9 +5,9 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { StoreContext } from "../store";
 
 
-function TopproductList( {TopProduct} ) {
+function TopproductList() {
 
-    const { state: { page: { products }, requestProducts: { loading } } } = useContext(StoreContext);
+    const { state: { page: { products }, producttype2, requestProducts: { loading } } } = useContext(StoreContext);
     const antIcon = <LoadingOutlined style={{ fontSize: 80, color: "#E26D5C" }} spin />;
 
     return (
@@ -25,7 +25,7 @@ function TopproductList( {TopProduct} ) {
                 </div>
             ):(
                 <Row className="topproductcard-container" justify="space-around" gutter={[16, 16]}>
-                    {TopProduct.map(product => (
+                    {producttype2.products.map(product => (
                         <Col 
                         key={product.id} 
                         sm={{ span: 12 }}
