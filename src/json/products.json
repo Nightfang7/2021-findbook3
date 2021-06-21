@@ -100,7 +100,9 @@
         "price": 960,
         "countInStock": 2,
         "image": "/images/Taiwan/TaiwanB01.jpg",
-        "image1": "/images/Taiwan/TaiwanB01_1.jpg"
+        "image1": "/images/Taiwan/TaiwanB01_1.jpg",
+        "image2": "/images/Taiwan/TaiwanB01_1.jpg",
+        "image3": "/images/Taiwan/TaiwanB01_1.jpg"
     },
     {
         "category": "台灣漫畫",
@@ -257,7 +259,9 @@
         "price": 500,
         "countInStock": 8,
         "image": "/images/Japan/JapanB01.jpg",
-        "image1": "/images/Japan/JapanB01_1.jpg"
+        "image1": "/images/Japan/JapanB01_1.jpg",
+        "image2": "/images/Japan/JapanB01_1.jpg",
+        "image3": "/images/Japan/JapanB01_1.jpg"
     },
     {
         "category": "日本漫畫",
@@ -269,7 +273,9 @@
         "price": 560,
         "countInStock": 10,
         "image": "/images/Japan/JapanB02.jpg",
-        "image1": "/images/Japan/JapanB02_1.jpg"
+        "image1": "/images/Japan/JapanB02_1.jpg",
+        "image2": "/images/Japan/JapanB02_1.jpg",
+        "image3": "/images/Japan/JapanB02_1.jpg"
     },
     {
         "category": "日本漫畫",
