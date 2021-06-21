@@ -36,7 +36,7 @@ export default function ShippingAddressCard() {
         ]}
         hasFeedback
       >
-        <Input placeholder="輸入全名" />
+        <Input className="login-form-text-color" placeholder="輸入全名" />
       </Form.Item>
       <Form.Item
         label="縣市: "
@@ -49,7 +49,7 @@ export default function ShippingAddressCard() {
         ]}
         hasFeedback
       >
-        <Input placeholder="輸入縣市" />
+        <Input className="login-form-text-color" placeholder="輸入縣市" />
       </Form.Item>
       <Form.Item
         label="地址: "
@@ -65,7 +65,7 @@ export default function ShippingAddressCard() {
         ]}
         hasFeedback
       >
-        <Input placeholder="輸入地址" />
+        <Input className="login-form-text-color" placeholder="輸入地址" />
       </Form.Item>
       <Form.Item
         label="郵遞區號: "
@@ -78,7 +78,7 @@ export default function ShippingAddressCard() {
         ]}
         hasFeedback
       >
-        <Input placeholder="輸入郵遞區號" />
+        <Input className="login-form-text-color" placeholder="輸入郵遞區號" />
       </Form.Item>
       <Form.Item>
         <Button

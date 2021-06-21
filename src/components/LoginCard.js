@@ -53,6 +53,7 @@ const LoginCard = ({ redirect }) => {
         hasFeedback
       >
         <Input
+          className="login-form-text-color"
           prefix={<MailOutlined className="site-form-item-icon" />}
           placeholder="E-Mail"
         />
@@ -68,6 +69,7 @@ const LoginCard = ({ redirect }) => {
         hasFeedback
       >
         <Input.Password
+          className="login-form-text-color"
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
           placeholder="密碼"

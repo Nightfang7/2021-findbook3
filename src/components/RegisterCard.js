@@ -64,6 +64,7 @@ function RegisterCard({ redirect }) {
                 <h1>註冊帳號</h1>
             </div>
             <Form.Item
+                
                 name="name"
                 label="姓名"
                 tooltip="What do you want others to call you?"
@@ -75,7 +76,7 @@ function RegisterCard({ redirect }) {
                 },
                 ]}
             >
-                <Input />
+                <Input  className="login-form-text-color" />
             </Form.Item>
             <Form.Item
                 name="email"
@@ -91,7 +92,7 @@ function RegisterCard({ redirect }) {
                 },
                 ]}
             >
-                <Input />
+                <Input className="login-form-text-color" />
             </Form.Item>
 
             <Form.Item
@@ -105,7 +106,7 @@ function RegisterCard({ redirect }) {
                 ]}
                 hasFeedback
             >
-                <Input.Password />
+                <Input.Password className="login-form-text-color" />
             </Form.Item>
 
             <Form.Item
@@ -131,7 +132,7 @@ function RegisterCard({ redirect }) {
                 }),
                 ]}
             >
-                <Input.Password />
+                <Input.Password  className="login-form-text-color"/>
             </Form.Item>
 
             <Form.Item
