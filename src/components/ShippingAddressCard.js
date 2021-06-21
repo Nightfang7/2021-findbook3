@@ -23,7 +23,7 @@ export default function ShippingAddressCard() {
       form={form}
     >
       <Form.Item
-        label="全名: "
+        label="您的真實姓名: "
         name="fullName"
         rules={[
           {
@@ -37,6 +37,19 @@ export default function ShippingAddressCard() {
         hasFeedback
       >
         <Input placeholder="輸入全名" />
+      </Form.Item>
+      <Form.Item
+        label="縣市: "
+        name="city"
+        rules={[
+          {
+            required: true,
+            message: "請輸入縣市",
+          },
+        ]}
+        hasFeedback
+      >
+        <Input placeholder="輸入縣市" />
       </Form.Item>
       <Form.Item
         label="地址: "
@@ -55,20 +68,6 @@ export default function ShippingAddressCard() {
         <Input placeholder="輸入地址" />
       </Form.Item>
       <Form.Item
-        label="縣市: "
-        name="city"
-        rules={[
-          {
-            required: true,
-            message: "請輸入縣市",
-          },
-        ]}
-        hasFeedback
-      >
-        <Input placeholder="輸入縣市" />
-      </Form.Item>
-
-      <Form.Item
         label="郵遞區號: "
         name="postalCode"
         rules={[
@@ -81,21 +80,6 @@ export default function ShippingAddressCard() {
       >
         <Input placeholder="輸入郵遞區號" />
       </Form.Item>
-
-      <Form.Item
-        label="國家: "
-        name="country"
-        rules={[
-          {
-            required: true,
-            message: "請輸入國家",
-          },
-        ]}
-        hasFeedback
-      >
-        <Input placeholder="輸入國家" />
-      </Form.Item>
-
       <Form.Item>
         <Button
           type="primary"

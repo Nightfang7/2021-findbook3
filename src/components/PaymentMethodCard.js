@@ -14,31 +14,46 @@ export default function PaymentMethodCard() {
       history.push('/placeorder');
    };
 
+   const backToAddress = () => {
+      history.push("/shipping");
+   };
+
    return (
       <Form
          onFinish={handleSubmit}
          name="normal_login"
-         className="register-form"
+         className="payment-form"
          initialValues={{paymentMethod}}
          form={form}
       >
 
-         <Form.Item name="paymentMethod" label="Payment Method: ">
+         <Form.Item name="paymentMethod" label="選擇付款方式:">
             <Radio.Group>
-               <Radio value="Google">Google</Radio>
+               <Radio value="Google">Google Pay</Radio>
                <Radio value="PayPal">PayPal</Radio>
-               <Radio value="Line">Line</Radio>
+               <Radio value="Line">Line Pay</Radio>
             </Radio.Group>
          </Form.Item>
 
          <Form.Item>
-            <Button
-               type="primary"
-               htmlType="submit"
-               className="login-form__button"
-            >
-               Continue
-        </Button>
+            <div className="payment-form__button">
+               <Button
+                  type="primary"
+                  htmlType="submit"
+                  
+                  onClick={backToAddress}
+               >
+                  上一步
+               </Button>
+
+               <Button
+                     type="primary"
+                     htmlType="submit"
+               >
+                  下一步
+               </Button>
+            </div>
+            
          </Form.Item>
       </Form>
    );

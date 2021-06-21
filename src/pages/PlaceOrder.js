@@ -15,6 +15,9 @@ function PlaceOrder() {
              <AppHeader />
             </Header>
             <Content className="bg-login">
+                <div className="shopping-title">
+                    <h1>購物步驟</h1>
+                </div>
                 <CheckoutSteps step1 step2 step3 step4/>
                 <PlaceOrderCard />
             </Content>

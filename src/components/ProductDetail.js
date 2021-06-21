@@ -54,13 +54,13 @@ function ProductDetail() {
                                 <Col className="gutter-row" lg={{span:6}} sm={{ span: 12}}>
                                     <Image className="product-image-reading"
                                             width={80}
-                                            src={product.image1}
+                                            src={product.image2}
                                         />
                                 </Col>
                                 <Col className="gutter-row" lg={{span:6}} sm={{ span: 12}}>
                                     <Image className="product-image-reading"
                                             width={80}
-                                            src={product.image1}
+                                            src={product.image3}
                                         />
                                 </Col>
             
@@ -72,7 +72,7 @@ function ProductDetail() {
                             
                     </Col>
                     <Col
-                        lg={{ span: 8 , offset: 1}}
+                        lg={{ span: 8 , offset: 1}} sm={{ span: 12}}
                     >
                         <div className="product-info--detail">
                             <h2>
@@ -88,6 +88,16 @@ function ProductDetail() {
                                 <p className="product-status">
                                     狀態: {product.countInStock > 0 ? "有庫存" : "暫時缺貨"}
                                 </p>
+                                <div className="product-detail-info">
+                                    <div>
+                                        <p>{product.bookinfo1}</p>
+                                        <p>{product.bookinfo2}</p>
+                                        <p>{product.bookinfo3}</p>
+                                        <p>{product.bookinfo4}</p>
+                                        <p>{product.bookinfo5}</p>
+                                        <p>{product.bookinfo6}</p>
+                                    </div>
+                                </div>
                                 
                                 <div className="product-shop">
                                     <p className="product-qty">

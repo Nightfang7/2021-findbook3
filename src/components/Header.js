@@ -7,7 +7,7 @@ function header() {
         <div class="header-container">
             <div className="container header">
                 <Link to="/">
-                    <img className="header-logo" src="https://i.ibb.co/sQmL9Qr/Group-7.png" alt="" />
+                    <img className="header-logo animate__headShake" src="https://i.ibb.co/sQmL9Qr/Group-7.png" alt="" />
                 </Link>
                 <span className="header-line1"></span>
                 <span className="header-line2"></span>

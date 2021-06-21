@@ -29,7 +29,7 @@ export default function AddToCart() {
       }, [cartItems])
 
     return (
-        <Button type="primary" className="btn-tocar" onClick={addToCart} >
+        <Button type="primary" className="btn-tocar login-form__button_red" onClick={addToCart} >
             加入購物車
         </Button>
     )

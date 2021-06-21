@@ -18,6 +18,11 @@ a{
     min-height: 80vh;
 }
 
+element.style {
+    margin: -16px !important;
+}
+
+
 .storelayout{
     width: 100%;
 }
@@ -470,7 +475,7 @@ a{
 // CarouselCard
 .BookCard{
     // margin-top: 90px;
-    width: 248px;
+    width: 240px;
     border-radius: 5px;
     background-color: transparent;
     border: 0;
@@ -508,6 +513,10 @@ a{
 .product-name{
     text-align: center;
     color: #253237;
+}
+.product-shop{
+    display: flex;
+    flex-direction: column;
 }
 .product-author{
     text-align: end;
@@ -705,12 +714,18 @@ a{
 .product-image{
     margin-bottom: 30px;
 }
-.product-shop{
+.product-detail-info{
     display: flex;
     flex-direction: row;
 }
+
+.product-shop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .product-money{
-    margin-left: 200px;
+    margin-top: 10px;
     font-size: 20px;
 }
 
@@ -774,6 +789,9 @@ a{
     margin-left: 2rem;
     flex: 8 1;
   }
+  .product-qty{
+      margin-top: 10px;
+  }
   
   .cart-price {
     font-size: 1rem;
@@ -786,6 +804,11 @@ a{
     opacity: 0.6;
     text-align: right;
     cursor: pointer;
+  }
+  .cart-item-delete p{
+    font-size: 0.8rem;
+    color:#B00000;
+    
   }
   
   .cart-total-price-wrap {display: flex; justify-content: space-between;}
@@ -831,7 +854,7 @@ a{
     background: #253237;
 }
 .topproductcard-container{
-    
+    padding: 0;
 }
 
 @media (max-width: 970px){
@@ -929,6 +952,17 @@ a{
     margin-left: auto;
     margin-right: auto;
 }
+.payment-form{
+    max-width: 27rem;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.payment-form__button{
+    display: flex;
+    justify-content:space-between;
+}
 .login-form-text{
     padding: 0.5rem;
     border-radius: 20px;
@@ -957,6 +991,16 @@ a{
     font-weight: bold;
     color: #253237;
 }
+.order-form_p{
+    display: flex;
+}
+.order-form_p p{
+    margin: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #253237;
+}
+
 .login-form__forgot {
   float: right;
   font-weight: bold;
@@ -965,6 +1009,10 @@ a{
 .ant-col-rtl .login-form__forgot {
   float: left;
 }
+.login-form__button{
+    margin-top: 10px;
+    float: right;
+}
 
 .login-form__button_red {
   width: 100%;
@@ -972,7 +1020,6 @@ a{
   border: 0px !important;
   height: 40px !important;
   font-weight: bold;
-  
 }
 .login-form__button_black {
     width: 100%;
@@ -980,7 +1027,14 @@ a{
     border: 0px !important;
     height: 40px !important;
     font-weight: bold;
-  }
+}
+.login-form__button_gray{
+    background-color: #FBFFF1 !important;
+    color: #253237;
+    height: 40px !important;
+    font-weight: bold;
+    border: 2px dashed #253237;
+}
 
 .login-form__error-wrap {
   margin-top: 1rem;
@@ -1020,22 +1074,39 @@ a{
   color: #253237;
 }
 
+.profileorderlist{
+    margin-top: 2rem;
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    background-color: #FBFFF1;
+    border-radius: 5px;
+}
+
+.order-list{
+   // display: flex;
+}
+
 /* Checkout Steps */
 .checkout-steps {
   font-size: 0.6rem;
   width: 80%;
-  margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  display: flex;
 }
-.checkout-steps > div {
-  border-top: 0.3rem #FBFFF1 solid;
-  color: #B9BAA3;
-  flex: 1;
-  padding: 0.2rem;
-  font-weight: bold;
+.shopping-title{
+    margin-top: 50px;
+    text-align: center;
 }
-.checkout-steps > div.active {
-  border-top-color: #E26D5C;
-  color: #E26D5C;
+.shopping-title h1{
+    font-size: 36px;
+    font-weight: bold;
+    color:#253237;
+    margin-top: 50px;
+    text-align: center;
 }
 
 //Order
@@ -1043,4 +1114,50 @@ a{
     display: flex;
     justify-content: center;
     padding: 2rem;
+}
+
+
+//PlaceOrder
+.content-summary-card{
+    margin-bottom: 5rem !important;
+}
+.card-body{
+    margin-bottom: 35px;
+}
+.summmary-info{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    
+}
+.summary-info-right{
+    padding: 0 !important;
+}
+.bg-summary-card{
+    padding: 2rem !important;
+    background-color: #FBFFF1;
+    box-shadow: 1px 3px 9px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.line{
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px dashed #000;
+    margin-bottom: 10px;
+}
+.btn-google {
+    width: 100% !important;
+}
+.orderheader-title{
+    font-size: 30px;
+    font-weight: bold;
+    color:#253237;
+}
+
+
+@media (max-width: 425px){
+    .orderheader-title{
+        font-size: 25px;
+    }
+    
 }

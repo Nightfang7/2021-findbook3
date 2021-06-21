@@ -31,6 +31,13 @@ import {
     BEGIN_ORDER_CREATE,
     SUCCESS_ORDER_CREATE,
     FAIL_ORDER_CREATE,
+    RESET_ORDER_CREATE,
+    BEGIN_ORDER_DETAILS,
+    SUCCESS_ORDER_DETAILS,
+    FAIL_ORDER_DETAILS,
+    SUCCESS_ORDERLIST,
+    FAIL_ORDERLIST,
+    GET_ORDERLIST_BY_UID
 } from "../util/constants"
 
 export const StoreContext = createContext();  
@@ -90,6 +97,12 @@ const initialState = {
         loading: false,
         userInfo: null,
         error: "",
+    },
+    searchOrderDetailByUid: {
+      loading: false,
+      order: [],
+      error: null,
+      tapOrNot:false
     },
  };
 
@@ -211,6 +224,8 @@ const initialState = {
             };
         case LOGOUT_REQUEST:
             cartItems = [];
+            state.searchOrderDetailByUid.order=[];
+            state.searchOrderDetailByUid.tapOrNot=false;
             return {
               ...state,
               cartItems,
@@ -228,7 +243,10 @@ const initialState = {
               },
             };
         case BEGIN_REGISTER_REQUEST:
-            return { ...state, userRegister: { ...state.userRegister, loading: true } };
+            return { 
+              ...state, 
+              userRegister: { ...state.userRegister, loading: true } 
+            };
         case SUCCESS_REGISTER_REQUEST:
             return {
               ...state,
@@ -254,7 +272,14 @@ const initialState = {
               },
             };
         case BEGIN_ORDER_CREATE:
-            return { ...state, orderInfo: { ...state.orderInfo, loading: true } };
+            return { 
+              ...state, 
+              orderInfo: { 
+                ...state.orderInfo, 
+                loading: true, 
+                success: false,
+              } 
+            };
         case SUCCESS_ORDER_CREATE:
             return {
               ...state,
@@ -277,6 +302,71 @@ const initialState = {
                 error: action.payload,
               },
             };
+        case RESET_ORDER_CREATE:
+          return {
+            ...state,
+            orderInfo: {
+              ...state.orderInfo,
+              loading: false,
+              order: { id: "" },
+              success: false,
+            },
+          };
+        case BEGIN_ORDER_DETAILS:
+          return {
+            ...state,
+            orderDetail: {
+              ...state.orderDetail,
+              loading: true,
+            }
+          };
+        case SUCCESS_ORDER_DETAILS:
+          return {
+            ...state,
+            orderDetail: {
+              ...state.orderDetail,
+              loading: false,
+              order: action.payload,
+            },
+          };
+        case FAIL_ORDER_DETAILS:
+          return {
+            ...state,
+            orderDetail: {
+              ...state.orderDetail,
+              loading: false,
+              error: action.payload,
+            },
+          };
+          case GET_ORDERLIST_BY_UID:
+          return{
+            ...state,
+            searchOrderDetailByUid: {
+              ...state.searchOrderDetailByUid,
+              loading: true,
+              tapOrNot:true
+          }
+        };
+        case FAIL_ORDERLIST:
+          return{
+            ...state,
+            searchOrderDetailByUid: {
+              ...state.searchOrderDetailByUid,
+              loading: false,
+              error:action.payload
+          }
+        };
+          case SUCCESS_ORDERLIST:
+            console.log("sucess")
+            return {
+              ...state,
+          searchOrderDetailByUid: {
+            ...state.searchOrderDetailByUid,
+            loading: false,
+            order: action.payload,
+            error: null,
+          }
+        };
         default:
         return state;
     }

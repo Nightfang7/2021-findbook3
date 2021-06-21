@@ -26,15 +26,11 @@ function ProductItem({ product }) {
                     {/* 商品資訊 */}
                     <div className="product-info text-white">          
                         <h3 className="product-name text-white">{product.name1}<br/>{product.name2}</h3>
-                        <h4 className="price text-white">NT. {product.price} </h4>
-                        <div className="shoppingLike-container">
-                            <span className="shoppingLike">
-                                <i class="far fa-heart fa-lg"></i>
-                                <ProductShoppingbag product={product} qty={1} />
-                            </span>
+                        <div className="product-shop">
+                            <h4 className="price text-white">NT. {product.price} </h4>
+                            <ProductShoppingbag product={product} qty={1} />
                         </div>
-                        
-                    </div>   
+                    </div>    
             </Card>
              
         </div>

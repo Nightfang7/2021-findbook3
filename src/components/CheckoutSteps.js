@@ -1,12 +1,20 @@
 import React from 'react';
+import { Steps } from 'antd';
+import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '@ant-design/icons';
+
+const { Step } = Steps;
 
 export default function CheckoutSteps(props) {
   return (
-    <div className="container checkout-steps">
-      <div className={props.step1 ? 'active' : ''}>登入</div>
-      <div className={props.step2 ? 'active' : ''}>寄送資訊</div>
-      <div className={props.step3 ? 'active' : ''}>付款</div>
-      <div className={props.step4 ? 'active' : ''}>訂單資訊</div>
+    <div>
+      <Steps responsive className="container checkout-steps">
+        <Step status={props.step1 ? 'finish' : 'wait'} title="登入" icon={<UserOutlined />} />
+        <Step status={props.step2 ? 'finish' : 'wait'} title="寄送資訊" icon={<SolutionOutlined />} />
+        <Step status={props.step3 ? 'finish' : 'wait'} title="付款" icon={<LoadingOutlined />} />
+        <Step status={props.step4 ? 'finish' : 'wait'} title="訂單資訊" icon={<SmileOutlined />} />
+      </Steps>
     </div>
+    
+    
   );
 }

@@ -73,30 +73,16 @@ export default function OrderCard() {
                   <Spin indicator={antIcon} className="spinner" />
                </div>
             ) : (
-               <Row gutter={[24, 24]}>
+               <Row className="content-summary-card" gutter={[24, 24]}>
                   <Col
+                     className = "bg-summary-card"
                      xs={{ span: 20, offset: 2 }}
-                     lg={{ span: 13, offset: 2 }}
+                     lg={{ span: 9, offset: 4 }}
                   >
                      <div className="card card-body">
-                        <h2 style={{ color: 'white' }}>Shipping</h2>
-                        <p>
-                           <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
-                           <strong>Address: </strong> {cart.shippingAddress.address},
-                  {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}
-                  ,{cart.shippingAddress.country}
-                        </p>
-                     </div>
-                     <div className="card card-body">
-                        <h2 style={{ color: 'white' }}>Payment</h2>
-                        <p>
-                           <strong>Method:</strong> {cart.paymentMethod}
-                        </p>
-                     </div>
-                     <div className="card card-body">
-                        <h2 style={{ color: 'white' }}>Order Items</h2>
+                     <h2 style={{ color: '#253237', fontWeight:'bold', fontSize:'25px' }}>購買的商品</h2>
                         {cartItems.length === 0 ? (
-                           <div>Cart is empty</div>
+                           <div>購物清單是空的喔!</div>
                         ) : (
                            cartItems.map(item => (
                               <li key={item.id} className="cart-item">
@@ -106,12 +92,12 @@ export default function OrderCard() {
                                  <div className="cart-item-content">
                                     <div className="cart-name">{item.name}</div>
                                     <div className="product-qty">
-                                       Qty: {item.qty}
+                                    數量: {item.qty}
                                     </div>
                                  </div>
                                  <div className="cart-item-end">
                                     <div className="cart-price">
-                                       ${item.price * item.qty}
+                                    NT.{item.price * item.qty}
                                     </div>
                                  </div>
 
@@ -119,39 +105,59 @@ export default function OrderCard() {
                            ))
                         )}
                         <div className="cart-total-price-wrap">
-                           Total
-            <div className="cart-total-price">${getTotalPrice()}</div>
+                           總額:
+                           <div className="cart-total-price">NT. {getTotalPrice()}</div>
                         </div>
                      </div>
 
+                     <div className="line"></div>
+
+                     <div className="card card-body">
+                        <h2 style={{ color: '#253237' , fontWeight:'bold', fontSize:'25px'}}>購買資訊</h2>
+                        <p>
+                           <strong>姓名:&nbsp;</strong> {cart.shippingAddress.fullName} <br />
+                           <strong>郵遞區號:&nbsp;</strong> {cart.shippingAddress.postalCode} <br />
+                           <strong>地址:&nbsp;</strong> {cart.shippingAddress.city}{cart.shippingAddress.address}
+                            
+                        </p>
+                     </div>
+
+                     <div className="line"></div>
+
+                     <div className="card card-body">
+                        <h2 style={{ color: '#253237' , fontWeight:'bold', fontSize:'25px'}}>付費資訊</h2>
+                        <p>
+                           <strong>付款方式:</strong> {cart.paymentMethod}
+                        </p>
+                     </div>
+                     
+
                   </Col>
                   <Col
-                     xs={{ span: 20, offset: 2 }}
-                     lg={{ span: 7, offset: 0 }}
+                     xs={{ span: 22, offset: 1 }}
+                     lg={{ span: 7, offset: 1 }}
                   >
-                     <div className="card card-body">
-                        <h2 style={{ color: 'white' }}>Order Summary</h2>
-                        <div className="row">
-                           <div>Items</div>
-                           <div>${cart.itemsPrice}</div>
+                     <div className="card card-body bg-summary-card">
+                     <h2 style={{ color: '#253237' , fontWeight:'bold', fontSize:'25px' }}>商品資訊</h2>
+                     <div className="summmary-info">
+                        <div>商品總額:</div>
+                        <div>NT.{cart.itemsPrice}</div>
+                     </div>
+                     <div className="summmary-info">
+                        <div>運費</div>
+                        <div>NT.{cart.shippingPrice}</div>
+                     </div>
+                     <div className="line"></div>
+                     <div className="summmary-info">
+                        <div>
+                        <strong>最後總額:</strong>
                         </div>
-                        <div className="row">
-                           <div>Shipping</div>
-                           <div>${cart.shippingPrice}</div>
+                        <div>
+                        <strong>NT.{cart.totalPrice}</strong>
                         </div>
-                        <div className="row">
-                           <div>Tax</div>
-                           <div>${cart.taxPrice}</div>
-                        </div>
-                        <div className="row">
-                           <div>
-                              <strong> Order Total</strong>
-                           </div>
-                           <div>
-                              <strong>${cart.totalPrice}</strong>
-                           </div>
-                        </div>
+                     </div>
                         <GooglePayButton
+                           className="btn-google"
                            environment="TEST"
                            buttonColor="black"
                            paymentRequest={paymentRequest}

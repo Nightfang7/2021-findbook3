@@ -28,6 +28,13 @@ import {
     BEGIN_ORDER_CREATE,
     SUCCESS_ORDER_CREATE,
     FAIL_ORDER_CREATE,
+    RESET_ORDER_CREATE,
+    BEGIN_ORDER_DETAILS,
+    SUCCESS_ORDER_DETAILS,
+    FAIL_ORDER_DETAILS,
+    SUCCESS_ORDERLIST,
+    FAIL_ORDERLIST,
+    GET_ORDERLIST_BY_UID
 } from "../util/constants"
 import { 
     getProducts, 
@@ -37,7 +44,10 @@ import {
     registerWithEmailPassword,
     signOut,
     updateUserInfoApi, 
+    getOrderById,
+    getOrderByUser,
     addOrderApi
+    
 } from "../api";
 
 export const addcartItem = (dispatch, product, qty) => {
@@ -240,6 +250,42 @@ export const loginToFirebase = async (dispatch, userInfo) => {
   
   
   };
+
+  export const requestOrderDetail = async (dispatch, orderId) => {
+    dispatch({ type: BEGIN_ORDER_DETAILS });
+    try {
+      const order = await getOrderById(orderId);
+      dispatch({ 
+        type: SUCCESS_ORDER_DETAILS,
+        payload: order
+      });
+    } catch (error) {
+      dispatch({ 
+        type: FAIL_ORDER_DETAILS, 
+        payload: error 
+      });
+    }
+  }
+  
+  export const requestOrderID = async (dispatch) => {
+    dispatch({ type: GET_ORDERLIST_BY_UID });
+    try {
+      const order = await getOrderByUser();
+      dispatch({ 
+        type: SUCCESS_ORDERLIST,
+        payload: order
+      });
+    } catch (error) {
+      dispatch({ 
+        type: FAIL_ORDERLIST, 
+        payload: error 
+      });
+    }
+  }
+
+  export const resetOrder = (dispatch) => {
+    dispatch({ type: RESET_ORDER_CREATE });
+  }
 // export const setStorepageContent = (dispatch, title, products) => {
 //     dispatch({
 //         type: SET_STOREPAGE_CONTENT,

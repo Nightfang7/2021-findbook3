@@ -17,8 +17,8 @@ function Order( { match } ) {
              <AppHeader />
             </Header>
             <Content className="bg-login">
-                <OrderHeader title={`Order: ${match.params.orderId}`} />
-                <OrderCard order={orderInfo} />
+                <OrderHeader title={`訂單編號: ${match.params.orderId}`} />
+                <OrderCard orderId={match.params.orderId} />
             </Content>
             <Footer className="layout-footer">
              <AppFooter/>  

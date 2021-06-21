@@ -24,8 +24,7 @@ export default function PlaceOrderCard() {
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
   );
   cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
-  cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
-  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice;
 
   useEffect(() => {
     if(success) {
@@ -34,30 +33,16 @@ export default function PlaceOrderCard() {
   }, [success]);
 
   return (
-    <Row gutter={[24, 24]}>
+    <Row gutter={[24, 24]} className="content-summary-card"> 
       <Col
         xs={{ span: 20, offset: 2 }}
-        lg={{ span: 13, offset: 2 }}
+        lg={{ span: 9, offset: 3 }}
+        className = "bg-summary-card"
       >
         <div className="card card-body">
-          <h2 style={{ color: 'white' }}>Shipping</h2>
-          <p>
-            <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
-            <strong>Address: </strong> {cart.shippingAddress.address},
-                  {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}
-                  ,{cart.shippingAddress.country}
-          </p>
-        </div>
-        <div className="card card-body">
-          <h2 style={{ color: 'white' }}>Payment</h2>
-          <p>
-            <strong>Method:</strong> {cart.paymentMethod}
-          </p>
-        </div>
-        <div className="card card-body">
-          <h2 style={{ color: 'white' }}>Order Items</h2>
+          <h2 style={{ color: '#253237', fontWeight:'bold', fontSize:'25px' }}>購買的商品</h2>
           {cartItems.length === 0 ? (
-            <div>Cart is empty</div>
+            <div>沒有商品訂單!</div>
           ) : (
             cartItems.map(item => (
               <li key={item.id} className="cart-item">
@@ -67,12 +52,12 @@ export default function PlaceOrderCard() {
                 <div className="cart-item-content">
                   <div className="cart-name">{item.name}</div>
                   <div className="product-qty">
-                    Qty: {item.qty}
+                    數量: {item.qty}
                   </div>
                 </div>
                 <div className="cart-item-end">
                   <div className="cart-price">
-                    ${item.price * item.qty}
+                    NT.{item.price * item.qty}
                   </div>
                 </div>
 
@@ -80,36 +65,56 @@ export default function PlaceOrderCard() {
             ))
           )}
           <div className="cart-total-price-wrap">
-            Total
-            <div className="cart-total-price">${getTotalPrice()}</div>
+            總額:
+            <div className="cart-total-price">NT.{getTotalPrice()}</div>
           </div>
         </div>
 
-      </Col>
-      <Col
-        xs={{ span: 20, offset: 2 }}
-        lg={{ span: 7, offset: 0 }}
-      >
+        <div className="line"></div>
+
         <div className="card card-body">
-          <h2 style={{ color: 'white' }}>Order Summary</h2>
-          <div className="row">
-            <div>Items</div>
-            <div>${cart.itemsPrice}</div>
+          <h2 style={{ color: '#253237' , fontWeight:'bold', fontSize:'25px'}}>購買資訊</h2>
+          <p>
+            <strong>姓名:</strong> {cart.shippingAddress.fullName} <br />
+            <strong>地址: </strong> {cart.shippingAddress.address},
+                  {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}
+                  ,{cart.shippingAddress.country}
+          </p>
+        </div>
+
+        <div className="line"></div>
+
+        <div className="card card-body">
+          <h2 style={{ color: '#253237' , fontWeight:'bold', fontSize:'25px'}}>付費資訊</h2>
+          <p>
+            <strong>付款方式:</strong> {cart.paymentMethod}
+          </p>
+        </div>
+
+        
+
+      </Col>
+      <Col className="summary-info-right"
+        xs={{ span: 20, offset: 2 }}
+        lg={{ span: 7, offset: 1 }}
+      >
+        <div className="card card-body bg-summary-card">
+          <h2 style={{ color: '#253237' , fontWeight:'bold', fontSize:'25px' }}>商品資訊</h2>
+          <div className="summmary-info">
+            <div>商品總額:</div>
+            <div>NT.{cart.itemsPrice}</div>
           </div>
-          <div className="row">
-            <div>Shipping</div>
-            <div>${cart.shippingPrice}</div>
+          <div className="summmary-info">
+            <div>運費</div>
+            <div>NT.{cart.shippingPrice}</div>
           </div>
-          <div className="row">
-            <div>Tax</div>
-            <div>${cart.taxPrice}</div>
-          </div>
-          <div className="row">
+          <div className="line"></div>
+          <div className="summmary-info">
             <div>
-              <strong> Order Total</strong>
+              <strong>最後總額:</strong>
             </div>
             <div>
-              <strong>${cart.totalPrice}</strong>
+              <strong>NT.{cart.totalPrice}</strong>
             </div>
           </div>
           <Button
@@ -118,7 +123,7 @@ export default function PlaceOrderCard() {
             type="primary"
             onClick={placeOrderHandler}
           >
-            Place Order
+            <p>完成訂單</p>
          </Button>
         </div>
 

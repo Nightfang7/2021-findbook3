@@ -11,7 +11,8 @@ import Shipping from './pages/Shipping'
 import Profile from './pages/Profile'
 import Payment from './pages/Payment';
 import PlaceOrder from './pages/PlaceOrder';
-import Order from './pages/Order'
+import Order from './pages/Order';
+import 'animate.css';
 
 import { StoreProvider } from "./store"
 
