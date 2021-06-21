@@ -64,12 +64,13 @@ export default function CartModal({isModalVisible, toggleModal}) {
                      </div>
                   </div>
                   <div className="cart-item-end">
+                     <div className="cart-item-delete" onClick={()=>removeCartItem(dispatch, item.id)}>
+                        <p>X 取消商品</p>
+                     </div>
                      <div className="cart-price">
                         NT.{item.price * item.qty}    
                      </div>
-                     <div className="cart-item-delete" onClick={()=>removeCartItem(dispatch, item.id)}>
-                        x
-                     </div>
+                     
                   </div>
 
                </li>
@@ -77,7 +78,7 @@ export default function CartModal({isModalVisible, toggleModal}) {
         )}
         <div className="cart-total-price-wrap">
            總金額
-            <div className="cart-total-price">${getTotalPrice()}</div>
+            <div className="cart-total-price">NT.{getTotalPrice()}</div>
         </div>
         <Button 
             className="cart-modal-btn" 
