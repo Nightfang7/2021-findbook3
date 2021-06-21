@@ -230,7 +230,7 @@ export const loginToFirebase = async (dispatch, userInfo) => {
         paymentMethod: cart.paymentMethod,
         itemsPrice: cart.itemsPrice,
         shippingPrice: cart.shippingPrice,
-        taxPrice: cart.taxPrice,
+        // taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
       };    
       const orderInfo = await addOrderApi(item);

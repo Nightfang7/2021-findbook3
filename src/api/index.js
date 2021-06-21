@@ -73,11 +73,11 @@ export const feedProducts = () => {
     products.forEach((product) => {
       const docRef = allProductsCollectionRef.doc();
       const id = docRef.id;
-      const user = auth.currentUser._id;
+      //const user = auth.currentUser._id;
       // Store Data for Aggregation Queries
       docRef.set({
         ...product,
-        user,
+        //user,
         id
       });
     })
