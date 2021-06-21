@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { Drawer } from "antd";
 import CartSummary from './CartSummary';
 import UserInfo from './UserInfo';
+import UserInfoNavbar from './UserInfoNavbar';
+import CartSummaryNavbar from './CartSummaryNavbar';
 
 function NavBar() {
     const [isOnTouch, setIsOnTouch] = useState(false);
@@ -39,7 +41,7 @@ function NavBar() {
             </div>
             <Drawer
                 title=" "
-                placement={"top"}
+                placement={"right"}
                 closable={false}
                 onClose={handleCloseDrawer}
                 visible={isOnTouch}
@@ -49,21 +51,18 @@ function NavBar() {
                 bodyStyle={{ backgroundColor: "#253237" }}
                 headerStyle={{ backgroundColor: "#253237", color: "#FBFFF1", height: "0.8rem", padding: "0", borderBottom: "0"}}
             >
-                <Link onClose={handleCloseDrawer} to="/about">
-                    <div>
-                        關於
-                    </div>
-                </Link>
                 <Link onClose={handleCloseDrawer} to="/store">
-                    <div>
+                    <div style={{marginBottom: "1rem"}}>
                         全部商品
                     </div>
                 </Link>
-                <Link onClose={handleCloseDrawer} to="/feeder">
+                <UserInfoNavbar />
+                <CartSummaryNavbar />
+                {/* <Link onClose={handleCloseDrawer} to="/feeder">
                     <div>
                         JSONFEED
                     </div>
-                </Link>
+                </Link> */}
             </Drawer>
         </div>
     )

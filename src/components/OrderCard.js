@@ -1,16 +1,16 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Row, Col, Spin } from "antd";
 import { LoadingOutlined } from '@ant-design/icons';
 import GooglePayButton from '@google-pay/button-react';
-import { savePaymentMethod } from "../action"
+import { savePaymentMethod, requestOrderDetail } from "../action"
 import { StoreContext } from "../store";
 
-export default function OrderCard() {
-   const { state: { cart, orderInfo: { loading } }, dispatch } = useContext(StoreContext);
-   const { cartItems } = cart;
+export default function OrderCard({ orderId }) {
+   const { state: { cart, orderInfo: { loading, order } }, dispatch } = useContext(StoreContext);
+   const { orderItems } = order;
    const history = useHistory()
-   const antIcon = <LoadingOutlined style={{ fontSize: 80, color: "#8183ff" }} spin />;
+   const antIcon = <LoadingOutlined style={{ fontSize: 80, color: "#E26D5C" }} spin />;
 
    const paymentRequest = {
       apiVersion: 2,
@@ -51,8 +51,8 @@ export default function OrderCard() {
    };
 
    const getTotalPrice = () => {
-      return (cartItems.length > 0) ?
-         cartItems.reduce((sum, item) => sum + item.price * item.qty, 0)
+      return (orderItems.length > 0) ?
+         orderItems.reduce((sum, item) => sum + item.price * item.qty, 0)
          : 0;
    }
 
@@ -63,7 +63,10 @@ export default function OrderCard() {
    cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
    cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
    cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
-
+   
+   useEffect(() => {
+      requestOrderDetail(dispatch, orderId)
+   }, [orderId])
 
    return (
       <>
@@ -81,10 +84,10 @@ export default function OrderCard() {
                   >
                      <div className="card card-body">
                      <h2 style={{ color: '#253237', fontWeight:'bold', fontSize:'25px' }}>購買的商品</h2>
-                        {cartItems.length === 0 ? (
+                        {orderItems.length === 0 ? (
                            <div>購物清單是空的喔!</div>
                         ) : (
-                           cartItems.map(item => (
+                           orderItems.map(item => (
                               <li key={item.id} className="cart-item">
                                  <div className="cart-image">
                                     <img src={item.image} alt={item.name} />
@@ -106,7 +109,7 @@ export default function OrderCard() {
                         )}
                         <div className="cart-total-price-wrap">
                            總額:
-                           <div className="cart-total-price">NT. {getTotalPrice()}</div>
+                           <div className="cart-total-price">NT. {order.totalPrice}</div>
                         </div>
                      </div>
 
@@ -115,9 +118,9 @@ export default function OrderCard() {
                      <div className="card card-body">
                         <h2 style={{ color: '#253237' , fontWeight:'bold', fontSize:'25px'}}>購買資訊</h2>
                         <p>
-                           <strong>姓名:&nbsp;</strong> {cart.shippingAddress.fullName} <br />
-                           <strong>郵遞區號:&nbsp;</strong> {cart.shippingAddress.postalCode} <br />
-                           <strong>地址:&nbsp;</strong> {cart.shippingAddress.city}{cart.shippingAddress.address}
+                           <strong>姓名:&nbsp;</strong> {order.shippingAddress.fullName} <br />
+                           <strong>郵遞區號:&nbsp;</strong> {order.shippingAddress.postalCode} <br />
+                           <strong>地址:&nbsp;</strong> {order.shippingAddress.city}{order.shippingAddress.address}
                             
                         </p>
                      </div>
@@ -127,7 +130,7 @@ export default function OrderCard() {
                      <div className="card card-body">
                         <h2 style={{ color: '#253237' , fontWeight:'bold', fontSize:'25px'}}>付費資訊</h2>
                         <p>
-                           <strong>付款方式:</strong> {cart.paymentMethod}
+                           <strong>付款方式:</strong> {order.paymentMethod}
                         </p>
                      </div>
                      
@@ -141,11 +144,11 @@ export default function OrderCard() {
                      <h2 style={{ color: '#253237' , fontWeight:'bold', fontSize:'25px' }}>商品資訊</h2>
                      <div className="summmary-info">
                         <div>商品總額:</div>
-                        <div>NT.{cart.itemsPrice}</div>
+                        <div>NT.{order.itemsPrice}</div>
                      </div>
                      <div className="summmary-info">
                         <div>運費</div>
-                        <div>NT.{cart.shippingPrice}</div>
+                        <div>NT.{order.shippingPrice}</div>
                      </div>
                      <div className="line"></div>
                      <div className="summmary-info">
@@ -153,7 +156,7 @@ export default function OrderCard() {
                         <strong>最後總額:</strong>
                         </div>
                         <div>
-                        <strong>NT.{cart.totalPrice}</strong>
+                        <strong>NT.{order.totalPrice}</strong>
                         </div>
                      </div>
                         <GooglePayButton
